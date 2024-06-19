@@ -151,6 +151,7 @@ nav ul li a:focus::before {
   width: 100%;
   font-size: 1rem;
   text-align: center;
+  color:wheat;
 }
 
 @media (max-width: 900px) {
