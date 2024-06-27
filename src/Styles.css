@@ -1,0 +1,214 @@
+/* Styles.css */
+
+/* Resetting default padding and margin for all elements */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --primary-color: #1a1a1a; /* Dark background color */
+  --secondary-color: #dcdcdc; /* Light gray text color */
+  --accent-color: #ff9800; /* Orange accent color */
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 16px;
+  margin: 0;
+}
+
+.header {
+  background-color:rgb(34, 32, 32);
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.header-theatre {
+  background-color: #000;
+}
+.nav-theatre {
+  background-color: #000; /* Change to the desired color for Theatre page */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  height: 3px;
+  width: 0;
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover:before {
+  width: calc(100% - 20px);
+}
+
+nav ul li a:focus {
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 20px;
+}
+
+nav ul li a:focus::before {
+  width: 0;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+}
+
+.inputText {
+  outline: none;
+  border: 1px solid var(--secondary-color);
+  border-radius: 2rem 0 0 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.inputText::placeholder {
+  color: var(--secondary-color);
+}
+
+.search-btn button {
+  background-color: var(--accent-color);
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 0 2rem 2rem 0;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+}
+
+/* Movie card container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px; /* Adjusted gap between grid items */
+  padding: 0px;
+  max-width: 1200px;
+  margin: 10px auto; /* Added margin and centered using auto */
+}
+
+/* Individual movie card */
+.movie {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--primary-color); /* Dark background color */
+  color: var(--secondary-color); /* Text color */
+  border: 1px solid hsl(0, 7%, 95%);
+}
+
+/* Movie image */
+.movie .poster {
+  width: 100%; /* Ensures the image fills its container */
+  height: 100%; /* Ensures the image fills its container */
+  display: block;
+  object-fit: cover; /* Ensures the image covers the entire box */
+  object-position:left; /* Centers the image within its container */
+}
+
+
+/* Movie details overlay on hover */
+.movie:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Movie details display on hover */
+.movie .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie:hover .overlay {
+  opacity: 1;
+}
+
+/* Movie title on hover */
+.movie .overlay h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--accent-color); /* Orange accent color */
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+/* Movie rating on hover */
+.movie .overlay p {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+}
+
+/* Loading and error messages */
+.loading,
+.error,
+.notfound {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+.loading {
+  color: var(--accent-color); /* Orange accent color */
+}
+
+.error {
+  color: red;
+}
+
+.notfound {
+  color: var(--secondary-color);
+}
